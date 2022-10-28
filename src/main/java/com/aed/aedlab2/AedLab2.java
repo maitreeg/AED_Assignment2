@@ -120,5 +120,8 @@ public class AedLab2 {
         encounterMap.put(encounterId, new Encounter(encounterId++, 702, 100, "12-Dec-2020", "pending", 204, 304, remarks));
 
         new LoginJFrame().setVisible(true);
+        
+        
+        
     }
 }
