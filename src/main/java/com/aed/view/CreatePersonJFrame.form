@@ -153,7 +153,7 @@
     <Component class="javax.swing.JRadioButton" name="maleRadioButton">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Male"/>
+        <Property name="text" type="java.lang.String" value="MALE"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maleRadioButtonActionPerformed"/>
@@ -161,7 +161,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="femaleRadioButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Female"/>
+        <Property name="text" type="java.lang.String" value="FEMALE"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="femaleRadioButtonActionPerformed"/>
@@ -169,7 +169,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="otherRadioButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Other"/>
+        <Property name="text" type="java.lang.String" value="OTHER"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherRadioButtonActionPerformed"/>

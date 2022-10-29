@@ -74,21 +74,21 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
         jLabel7.setText("HouseID");
 
         maleRadioButton.setSelected(true);
-        maleRadioButton.setText("Male");
+        maleRadioButton.setText("MALE");
         maleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 maleRadioButtonActionPerformed(evt);
             }
         });
 
-        femaleRadioButton.setText("Female");
+        femaleRadioButton.setText("FEMALE");
         femaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 femaleRadioButtonActionPerformed(evt);
             }
         });
 
-        otherRadioButton.setText("Other");
+        otherRadioButton.setText("OTHER");
         otherRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherRadioButtonActionPerformed(evt);
@@ -232,6 +232,7 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
         femaleRadioButton.setSelected(false);
         otherRadioButton.setSelected(false);
         houseField.setText("");
+        passField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -250,13 +251,13 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
             c.setAge(Integer.parseInt(ageField.getText()));
             c.setHouseID(Integer.parseInt(houseField.getText()));
             if(maleRadioButton.isSelected()){
-                c.setGender("Male");
+                c.setGender("MALE");
             }
             if(femaleRadioButton.isSelected()){
-                c.setGender("Female");
+                c.setGender("FEMALE");
             }
             if(otherRadioButton.isSelected()){
-                c.setGender("Other");
+                c.setGender("OTHER");
             }
         }//if
         JOptionPane.showMessageDialog(this, "Record Updated");
@@ -309,24 +310,25 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
         Person obj = AedLab2.personMap.get(personId);
 
         nameField.setText(obj.getName());
-        uNameField.setText(obj.getName());
-        ageField.setText(obj.getName());
-        houseField.setText(obj.getName());
+        uNameField.setText(obj.getUserName());
+        ageField.setText(obj.getAge() + "");
+        houseField.setText(obj.getHouseID() + "");
+        passField.setText(obj.getPassword());
         String gValue = obj.getGender();
-        if(gValue == "Male"){
-            genderValue="Male";
+        if(gValue == "MALE"){
+            genderValue="MALE";
             maleRadioButton.setSelected(true);
             femaleRadioButton.setSelected(false);
             otherRadioButton.setSelected(false);
         }
-        else if(gValue == "Female"){
-            genderValue="Female";
+        else if(gValue == "FEMALE"){
+            genderValue="FEMALE";
             femaleRadioButton.setSelected(true);
             otherRadioButton.setSelected(false);
             maleRadioButton.setSelected(false);
         }
         else{
-            genderValue="Other";
+            genderValue="OTHER";
             otherRadioButton.setSelected(true);
             maleRadioButton.setSelected(false);
             femaleRadioButton.setSelected(false);
@@ -335,15 +337,16 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
 
     private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed
         // TODO add your handling code here:
-        genderValue = "Female";
+        genderValue = "FEMALE";
         femaleRadioButton.setSelected(true);
         maleRadioButton.setSelected(false);
         otherRadioButton.setSelected(false);
+        //}
     }//GEN-LAST:event_femaleRadioButtonActionPerformed
 
     private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
         // TODO add your handling code here:
-            genderValue = "Male";
+            genderValue = "MALE";
             maleRadioButton.setSelected(true);
             femaleRadioButton.setSelected(false);
             otherRadioButton.setSelected(false);
@@ -352,11 +355,11 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
 
     private void otherRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherRadioButtonActionPerformed
         // TODO add your handling code here:
-            genderValue = "Other";
+            genderValue = "OTHER";
             maleRadioButton.setSelected(false);
             femaleRadioButton.setSelected(false);
             otherRadioButton.setSelected(true);
-            
+        //}    
     }//GEN-LAST:event_otherRadioButtonActionPerformed
 
     private void setTable(){
@@ -392,6 +395,7 @@ public class CreatePersonJFrame extends javax.swing.JFrame {
         femaleRadioButton.setSelected(false);
         otherRadioButton.setSelected(false);
         houseField.setText("");
+        passField.setText("");
     }
     
     /**
