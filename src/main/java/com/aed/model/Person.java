@@ -15,7 +15,8 @@ public class Person {
     private String gender;
     private String photo;
     private int houseID;
-
+    
+    public Person(){}
     public Person(int personID, String name, String userName, String password, String role, int age, String gender, String photo, int houseID) {
         this.personID = personID;
         this.name = name;

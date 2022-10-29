@@ -83,21 +83,21 @@ public class AedLab2 {
         houseMap.put(houseId, new House(houseId++, 404, "ABC"));
 
         personMap.put(personId, new Person(personId++, "anush", "anush", "anush123",
-                role, 32, "MALE", "./uploads/profileImage/pass.png", 500));
+                "PERSON", 32, "MALE", "./uploads/profileImage/pass.png", 500));
         personMap.put(personId, new Person(personId++, "dhanush", "dhanush", "dhanush123",
-                role, 23, "MALE", "./uploads/profileImage/pass.png", 500));
+                "PERSON", 23, "MALE", "./uploads/profileImage/pass.png", 500));
         personMap.put(personId, new Person(personId++, "rajesh", "rajesh", "rajesh123",
-                role, 43, "MALE", "./uploads/profileImage/pass.png", 506));
+                "PERSON", 43, "MALE", "./uploads/profileImage/pass.png", 506));
         personMap.put(personId, new Person(personId++, "raj", "raj", "raj123",
-                role, 23, "MALE", "./uploads/profileImage/pass.png", 507));
-        personMap.put(personId, new Person(personId++, "Rajat", "rajat", "rajat123",
-                "SYSTEMADMIN", 50, "MALE", "./uploads/profileImage/pass.png", 509));
+                "PERSON", 23, "MALE", "./uploads/profileImage/pass.png", 507));
+        personMap.put(personId, new Person(personId++, "Maitree", "maitree", "maitree123",
+                "SYSTEMADMIN", 50, "FEMALE", "./uploads/profileImage/pass.png", 509));
         personMap.put(personId, new Person(personId++, "hardik", "hardik", "hardik123",
                 "HOSPITALADMIN", 23, "MALE", "./uploads/profileImage/pass.png", 500));
         personMap.put(personId, new Person(personId++, "Disha", "disha", "disha123",
                 "COMMUNITYADMIN", 30, "FEMALE", "./uploads/profileImage/pass.png", 502));
         personMap.put(personId, new Person(personId++, "Nishank", "dhanush", "dhanush123",
-                role, 23, "MALE", "./uploads/profileImage/pass.png", 502));
+                "PERSON", 23, "MALE", "./uploads/profileImage/pass.png", 502));
         personMap.put(personId, new Person(personId++, "prasad", "prasad", "prasad123",
                 "DOCTER", 62, "MALE", "./uploads/profileImage/pass.png", 503));
         personMap.put(personId, new Person(personId++, "padma", "padma", "padma123",
