@@ -151,7 +151,9 @@ public class LoginJFrame extends javax.swing.JFrame {
                
                }
             if(roleName.equals("COMMUNITYADMIN") ){
-               
+                CommunityAdminJFrame1 communityJFrame= new CommunityAdminJFrame1();
+                communityJFrame.show();
+                dispose();
                }
             if(roleName.equals("DOCTOR") ){
                

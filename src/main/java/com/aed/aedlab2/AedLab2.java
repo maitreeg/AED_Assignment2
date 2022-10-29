@@ -94,7 +94,7 @@ public class AedLab2 {
                 "SYSTEMADMIN", 50, "FEMALE", "./uploads/profileImage/pass.png", 509));
         personMap.put(personId, new Person(personId++, "hardik", "hardik", "hardik123",
                 "HOSPITALADMIN", 23, "MALE", "./uploads/profileImage/pass.png", 500));
-        personMap.put(personId, new Person(personId++, "Disha", "disha", "disha123",
+        personMap.put(personId, new Person(personId++, "Abhijith", "nair", "nair123",
                 "COMMUNITYADMIN", 30, "FEMALE", "./uploads/profileImage/pass.png", 502));
         personMap.put(personId, new Person(personId++, "Nishank", "dhanush", "dhanush123",
                 "PERSON", 23, "MALE", "./uploads/profileImage/pass.png", 502));
