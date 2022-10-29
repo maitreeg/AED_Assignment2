@@ -78,7 +78,7 @@ public class CommunityAdminJFrame1 extends javax.swing.JFrame {
 
     private void personButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personButtonActionPerformed
         // TODO add your handling code here:
-        PersonJFrame personJFrame= new PersonJFrame();
+        CreatePersonJFrame personJFrame= new CreatePersonJFrame();
         personJFrame.show();
         dispose();
     }//GEN-LAST:event_personButtonActionPerformed
