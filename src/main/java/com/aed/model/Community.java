@@ -4,7 +4,9 @@
  */
 package com.aed.model;
 
+import com.aed.view.CommunityAdminJFrame;
 import java.util.List;
+import java.util.Map;
 
 /**
  *

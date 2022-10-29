@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class AedLab2 {
 
-    static int VitalSignsId = 100, docterId = 200, hospitalId = 300, communityId = 400, houseId = 500, encounterId = 600,
+    public static int VitalSignsId = 100, docterId = 200, hospitalId = 300, communityId = 400, houseId = 500, encounterId = 600,
             patientId = 700, personId = 800;
     public static String role = "PATIENT", remarks = "Visit again after 1 week";
     public static Map<Integer, VitalSigns> vitalSignsMap = new HashMap<>();

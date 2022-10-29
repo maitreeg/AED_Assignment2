@@ -4,19 +4,59 @@
  */
 package com.aed.view;
 
+import java.util.Collections;
+import javax.swing.table.DefaultTableModel;
+import com.aed.aedlab2.AedLab2;
+import static com.aed.aedlab2.AedLab2.communityMap;
+import com.aed.model.Community;
+import com.aed.view.CommunityAdminJFrame;
+import java.util.ArrayList;
+import java.util.Comparator;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mg
  */
 public class CommunityAdminJFrame extends javax.swing.JFrame {
+    int id = 1, personId = 0;
 
     /**
      * Creates new form CommunityAdminJFrame
      */
     public CommunityAdminJFrame() {
         initComponents();
+        setTable();
     }
+    class SortById implements Comparator<Community> {
+    // Used for sorting in ascending order of ID  
+        public int compare(Community a, Community b) {
+            return a.getCommunityId()- b.getCommunityId();
+        }
+    }
+    
+    private void setTable(){
+    int rIndex = 0;
+        //DateTimeFormatter dateFormatter3 = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+        String[][] data = new String[communityMap.size()][4];
+        //Community.sort(communityMap, new SortById());
+        for(Integer id: communityMap.keySet()){
+            Community c = AedLab2.communityMap.get(id);
+           
+            //data[rIndex][0]=String.valueOf(e.getEmployeeID());
+            data[rIndex][0] = c.getCommunityId() + "";
+            data[rIndex][1] = c.getName();
+            data[rIndex][2] = c.getCity(); //String.valueOf(e.getAge());
+            data[rIndex][3] = c.getZipcode();
+            
+            rIndex++;
+        }
 
+        String[] col = {"ID", "Name", "City", "ZipCode"};
+
+        DefaultTableModel model = new DefaultTableModel(data, col);
+        communityTable.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,36 +66,86 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        communityName = new javax.swing.JLabel();
+        communityCity = new javax.swing.JLabel();
+        communityZipcode = new javax.swing.JLabel();
+        cNameField = new javax.swing.JTextField();
+        cityField = new javax.swing.JTextField();
+        zipCodeField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        communityTable = new javax.swing.JTable();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(179, 216, 252));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("View");
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetButton(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 130, 50));
 
-        jButton2.setText("Update");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 50));
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 50));
 
-        jButton3.setText("Delete");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
 
-        jButton4.setText("Create");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 50));
+        createButton.setText("Create");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 50));
 
         jPanel2.setBackground(new java.awt.Color(179, 216, 252));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        communityName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        communityName.setText("Name");
+        jPanel2.add(communityName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 110, 50));
+
+        communityCity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        communityCity.setText("City");
+        jPanel2.add(communityCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 100, 40));
+
+        communityZipcode.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        communityZipcode.setText("ZipCode");
+        jPanel2.add(communityZipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, 50));
+        jPanel2.add(cNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 190, 50));
+        jPanel2.add(cityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 190, 50));
+
+        zipCodeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zipCodeFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(zipCodeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 190, 50));
+
+        communityTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,7 +156,12 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        communityTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                communityTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(communityTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +186,84 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void communityTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_communityTableMouseClicked
+        // TODO add your handling code here:
+        personId = Integer.parseInt(communityTable.getValueAt
+        (communityTable.getSelectedRow(), NORMAL).toString());
+        Community obj = AedLab2.communityMap.get(personId);
+        
+        
+        cNameField.setText(obj.getName());
+        cityField.setText(obj.getCity()+ "");
+        zipCodeField.setText(obj.getZipcode()+"");
+    }//GEN-LAST:event_communityTableMouseClicked
+
+    private void zipCodeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipCodeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zipCodeFieldActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+        if (personId != 0) {
+            for (Integer id : communityMap.keySet()) {
+                Community c = AedLab2.communityMap.get(id);
+                if (c.getCommunityId() == personId) {
+                    communityMap.remove(id);
+                    break;
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Deleted");
+        resetAction();
+        setTable();
+        personId = 0;
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void ResetButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton
+        // TODO add your handling code here:
+        cNameField.setText("");
+        cityField.setText("");
+        zipCodeField.setText("");
+    }//GEN-LAST:event_ResetButton
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        // TODO add your handling code here:
+        
+        if (personId != 0) {
+        // add validation, one of the field must be changed, only then update
+        Community c = communityMap.get(personId);
+          
+        c.setCommunityId(personId);
+        c.setName(cNameField.getText());
+        c.setCity(cityField.getText());
+        c.setZipcode(zipCodeField.getText());
+        }//if
+        JOptionPane.showMessageDialog(this, "Record Updated");
+        setTable();
+        resetAction();
+        personId = 0;
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        // TODO add your handling code here:
+       // if(validationAction()){
+       
+       String name = cNameField.getText();
+       String city = cityField.getText();
+       String zip = zipCodeField.getText();
+
+       communityMap.put(AedLab2.communityId, new Community(AedLab2.communityId++, name, city, zip, new ArrayList<Integer>(), new ArrayList<Integer>()));
+        //}
+        JOptionPane.showMessageDialog(null, "Record submitted");
+        setTable();
+        resetAction();
+    }//GEN-LAST:event_createButtonActionPerformed
+    
+    private void resetAction(){
+        cNameField.setText("");
+        cityField.setText("");
+        zipCodeField.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -127,13 +300,20 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cNameField;
+    private javax.swing.JTextField cityField;
+    private javax.swing.JLabel communityCity;
+    private javax.swing.JLabel communityName;
+    private javax.swing.JTable communityTable;
+    private javax.swing.JLabel communityZipcode;
+    private javax.swing.JButton createButton;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton updateButton;
+    private javax.swing.JTextField zipCodeField;
     // End of variables declaration//GEN-END:variables
 }
