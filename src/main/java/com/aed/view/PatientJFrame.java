@@ -5,23 +5,27 @@
 package com.aed.view;
 
 import com.aed.aedlab2.AedLab2;
+import static com.aed.aedlab2.AedLab2.docterMap;
 import static com.aed.aedlab2.AedLab2.hospitalMap;
 import static com.aed.aedlab2.AedLab2.patientMap;
+import static com.aed.aedlab2.AedLab2.personMap;
 import com.aed.model.Hospital;
 import com.aed.model.Patient;
 import com.aed.model.Docter;
 import com.aed.model.Person;
+import com.aed.model.VitalSigns;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author mg
  */
 public class PatientJFrame extends javax.swing.JFrame {
-    int id = 1, personID = 0;
+    int id = 1, personId = 0;
     DefaultTableModel model;
     /**
      * Creates new form PersonJFrame
@@ -53,7 +57,6 @@ public class PatientJFrame extends javax.swing.JFrame {
         searchText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        docNameField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,7 +108,8 @@ public class PatientJFrame extends javax.swing.JFrame {
         jLabel1.setText("Look for Hospitals / Doctors");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        jLabel5.setText("Enter Doctor's Name to book appointment : -");
+        jLabel5.setForeground(new java.awt.Color(0, 51, 204));
+        jLabel5.setText("Choose a record from the table to select preferred Doctor/Hospital/City");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,14 +135,14 @@ public class PatientJFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(docNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addGap(132, 132, 132)
+                        .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,11 +164,9 @@ public class PatientJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(docNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,7 +206,25 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
+        if( patientTable.getSelectedRow() == -1){
+           JOptionPane.showMessageDialog(this, "Please select record from table");
+        }
+        personId = Integer.parseInt(patientTable.getValueAt
+            (patientTable.getSelectedRow(), NORMAL).toString());
+        if( patientTable.getSelectedRow() == -1){
+           JOptionPane.showMessageDialog(this, "Please select record from table");
+        }
+        else{
+        //String communityName = patientTable.getValueAt(patientTable.getSelectedRow(), 3).toString();
+        String docName = patientTable.getValueAt(patientTable.getSelectedRow(), 3).toString();
         
+        Hospital obj = AedLab2.hospitalMap.get(personId);
+        
+        VitalSigns v = AedLab2.vitalSignsMap.get(obj.getDocterId().get(1));
+        
+        v.setSymptoms(vitalText.getText());
+        JOptionPane.showMessageDialog(this, "Appointment Booked");
+        }
     }//GEN-LAST:event_bookButtonActionPerformed
 
     public void searchString(String str){
@@ -218,7 +238,7 @@ public class PatientJFrame extends javax.swing.JFrame {
     int rIndex = 0;
        List<List<String>> dataDynamic = new ArrayList<>();
         for(Integer id: hospitalMap.keySet()){
-            System.out.println("HOSPITAL ID: " + id);
+            //System.out.println("HOSPITAL ID: " + id);
             Hospital c = AedLab2.hospitalMap.get(id);
            
             
@@ -284,7 +304,6 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookButton;
-    private javax.swing.JTextField docNameField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

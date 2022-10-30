@@ -4,6 +4,8 @@
  */
 package com.aed.model;
 
+import java.util.Date;
+
 /**
  *
  * @author mg
@@ -13,19 +15,19 @@ public class Encounter {
     private int encounterID;
     private int patientId;
     private int vitalSignsId;
-    private String dateOfEncounter;
-    private String status; //can be enum("accepted","rejected","pending")
-    private int doctorId;
+    private Date dateOfEncounter;
+    private String status; //can be ("accepted","pending")
+    //private int doctorId;
     private int hospitalId;
     private String remarks;
 
-    public Encounter(int encounterID, int patientId, int vitalSignsId, String dateOfEncounter, String status, int doctorId, int hospitalId, String remarks) {
+    public Encounter(int encounterID, int patientId, int vitalSignsId, Date dateOfEncounter, String status, int hospitalId, String remarks) {
         this.encounterID = encounterID;
         this.patientId = patientId;
         this.vitalSignsId = vitalSignsId;
         this.dateOfEncounter = dateOfEncounter;
         this.status = status;
-        this.doctorId = doctorId;
+        //this.doctorId = doctorId;
         this.hospitalId = hospitalId;
         this.remarks = remarks;
     }
@@ -55,10 +57,10 @@ public class Encounter {
     }
 
     public String getDateOfEncounter() {
-        return dateOfEncounter;
+        return dateOfEncounter+"";
     }
 
-    public void setDateOfEncounter(String dateOfEncounter) {
+    public void setDateOfEncounter(Date dateOfEncounter) {
         this.dateOfEncounter = dateOfEncounter;
     }
 
@@ -70,13 +72,13 @@ public class Encounter {
         this.status = status;
     }
 
-    public int getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
-    }
+//    public int getDoctorId() {
+//        return doctorId;
+//    }
+//
+//    public void setDoctorId(int doctorId) {
+//        this.doctorId = doctorId;
+//    }
 
     public int getHospitalId() {
         return hospitalId;

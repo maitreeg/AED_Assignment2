@@ -13,11 +13,15 @@ public class VitalSigns {
     private int vitalSignsId;
     private String symptoms;
     private int patientId;
+    
+    private int encounterId;
 
-    public VitalSigns(int vitalSignsId, String symptoms, int patientId) {
+    public VitalSigns(int vitalSignsId, String symptoms, int patientId,  int encounterId) {
         this.vitalSignsId = vitalSignsId;
         this.symptoms = symptoms;
         this.patientId = patientId;
+        //this.doctorId = doctorId;
+        this.encounterId = encounterId;
         
     }
     
@@ -43,6 +47,30 @@ public class VitalSigns {
 
     public void setPersonId(int patientId) {
         this.patientId = patientId;
+    }
+
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
+    }
+
+//    public int getDoctorId() {
+//        return doctorId;
+//    }
+//
+//    public void setDoctorId(int doctorId) {
+//        this.doctorId = doctorId;
+//    }
+
+    public int getEncounterId() {
+        return encounterId;
+    }
+
+    public void setEncounterId(int encounterId) {
+        this.encounterId = encounterId;
     }
     
 

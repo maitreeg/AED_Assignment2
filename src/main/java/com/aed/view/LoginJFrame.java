@@ -157,8 +157,10 @@ public class LoginJFrame extends javax.swing.JFrame {
                 communityJFrame.show();
                 dispose();
                }
-            if(roleName.equals("DOCTOR") ){
-               
+            if(roleName.equals("DOCTER") ){
+               DoctorJFrame docJFrame =  new DoctorJFrame();
+               docJFrame.show();
+               dispose();
                }
             if(roleName.equals("PERSON")){
                    PatientJFrame patientJFrame= new PatientJFrame();
