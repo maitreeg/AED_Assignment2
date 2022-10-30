@@ -46,6 +46,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         createButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         hospitalTable = new javax.swing.JTable();
@@ -70,7 +71,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 resetButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 130, 50));
+        jPanel1.add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 50));
 
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +79,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 50));
+        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 130, 50));
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +87,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
+        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 130, 50));
 
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,15 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 createButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 50));
+        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 130, 50));
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButton(evt);
+            }
+        });
+        jPanel1.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 40));
 
         jPanel2.setBackground(new java.awt.Color(203, 227, 250));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -312,6 +321,14 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
         zipcodField.setText(zipcode);
         
     }//GEN-LAST:event_hospitalTableMouseClicked
+
+    private void backButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton
+        // TODO add your handling code here:
+        HospitalJFrame hospitalJFrame= new HospitalJFrame();
+        hospitalJFrame.show();
+        dispose();
+         
+    }//GEN-LAST:event_backButton
     
     private void setTable(){
     int rIndex = 0;
@@ -385,6 +402,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JTextField cNameField;
     private javax.swing.JTextField cityField;
     private javax.swing.JButton createButton;

@@ -7,6 +7,7 @@ package com.aed.view;
 import com.aed.aedlab2.AedLab2;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,13 +20,6 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
      */
     public SystemAdminJFrame() {
         initComponents();
-        hospitalStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.hospitalMap.size()));
-        communityStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.communityMap.size()));
-        docterStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.docterMap.size()));
-        encounterStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.encounterMap.size()));
-        patientStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.patientMap.size()));
-        peopleStatField.setText(utility.UtilityFunctions.convertIntToString(AedLab2.personMap.size()));
-        adminImgLabel.setIcon(new ImageIcon(new ImageIcon("./uploads/profileImage/yash.jpeg").getImage().getScaledInstance(adminImgLabel.getWidth(), adminImgLabel.getHeight(), Image.SCALE_SMOOTH)));
          
     }
 
@@ -38,98 +32,23 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
-        nameField = new javax.swing.JTextField();
-        userNameLabel = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
-        passwordLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
-        ageLabel = new javax.swing.JLabel();
-        ageField = new javax.swing.JTextField();
-        genderLabel = new javax.swing.JLabel();
-        genderField = new javax.swing.JTextField();
-        houseIdLabel = new javax.swing.JLabel();
-        houseIdField = new javax.swing.JTextField();
-        adminImgLabel = new javax.swing.JLabel();
-        adminUpdateButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         hospitalButton = new javax.swing.JButton();
         communityButton = new javax.swing.JButton();
         personButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        hospitalStatLabel = new javax.swing.JLabel();
-        hospitalStatField = new javax.swing.JTextField();
-        communityStatLabel = new javax.swing.JLabel();
-        communityStatField = new javax.swing.JTextField();
-        docterStatLabel = new javax.swing.JLabel();
-        docterStatField = new javax.swing.JTextField();
-        encounterStatLabel = new javax.swing.JLabel();
-        encounterStatField = new javax.swing.JTextField();
-        patientStatLabel = new javax.swing.JLabel();
-        patientStatField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        peopleStatField = new javax.swing.JTextField();
+        patientButton = new javax.swing.JButton();
+        doctorButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Admin Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        nameLabel.setText("Name:");
-        nameLabel.setToolTipText("");
-        jPanel1.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 100, 30));
-        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 150, 30));
-
-        userNameLabel.setText("UserName:");
-        userNameLabel.setToolTipText("");
-        jPanel1.add(userNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 100, 30));
-
-        userNameField.setToolTipText("");
-        jPanel1.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 150, 30));
-
-        passwordLabel.setText("Password:");
-        passwordLabel.setToolTipText("");
-        jPanel1.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, 30));
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 150, 30));
-
-        ageLabel.setText("Age:");
-        jPanel1.add(ageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 100, 30));
-        jPanel1.add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 150, 30));
-
-        genderLabel.setText("Gender:");
-        genderLabel.setToolTipText("");
-        jPanel1.add(genderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 120, 30));
-
-        genderField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genderFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(genderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 150, 30));
-
-        houseIdLabel.setText("HouseId:");
-        houseIdLabel.setToolTipText("");
-        jPanel1.add(houseIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 100, 30));
-
-        houseIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                houseIdFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(houseIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 150, 30));
-
-        adminImgLabel.setToolTipText("");
-        jPanel1.add(adminImgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 120, 120));
-
-        adminUpdateButton.setText("Update");
-        adminUpdateButton.setToolTipText("");
-        jPanel1.add(adminUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, 30));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operations", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
 
         hospitalButton.setText("Hospital");
+        hospitalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalButton(evt);
+            }
+        });
 
         communityButton.setText("Community");
         communityButton.setToolTipText("");
@@ -146,10 +65,17 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        patientButton.setText("Patient");
+        patientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                patientButtonActionPerformed(evt);
+            }
+        });
+
+        doctorButton.setText("Doctor");
+        doctorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorButton(evt);
             }
         });
 
@@ -157,146 +83,90 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(patientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(personButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(hospitalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(communityButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(communityButton, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addComponent(doctorButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(doctorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(hospitalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(communityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(personButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(personButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(patientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statistics", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 14))); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        hospitalStatLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        hospitalStatLabel.setText("Total Hospitals:");
-        hospitalStatLabel.setToolTipText("");
-        jPanel3.add(hospitalStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 109, 32));
-
-        hospitalStatField.setBackground(new java.awt.Color(242, 242, 242));
-        hospitalStatField.setToolTipText("");
-        hospitalStatField.setBorder(null);
-        jPanel3.add(hospitalStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 90, 20));
-
-        communityStatLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        communityStatLabel.setText("Total Communities:");
-        communityStatLabel.setToolTipText("");
-        jPanel3.add(communityStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 109, 32));
-
-        communityStatField.setBackground(new java.awt.Color(242, 242, 242));
-        communityStatField.setBorder(null);
-        jPanel3.add(communityStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, 20));
-
-        docterStatLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        docterStatLabel.setText("Total Docters:");
-        docterStatLabel.setToolTipText("");
-        jPanel3.add(docterStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 80, 110, 32));
-
-        docterStatField.setBackground(new java.awt.Color(242, 242, 242));
-        docterStatField.setBorder(null);
-        jPanel3.add(docterStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 90, 20));
-
-        encounterStatLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        encounterStatLabel.setText("Total Encounters:");
-        jPanel3.add(encounterStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 109, 40));
-
-        encounterStatField.setBackground(new java.awt.Color(242, 242, 242));
-        encounterStatField.setToolTipText("");
-        encounterStatField.setBorder(null);
-        jPanel3.add(encounterStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 90, 20));
-
-        patientStatLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        patientStatLabel.setText("Total Patients:");
-        patientStatLabel.setToolTipText("");
-        jPanel3.add(patientStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 109, 30));
-
-        patientStatField.setBackground(new java.awt.Color(242, 242, 242));
-        patientStatField.setToolTipText("");
-        patientStatField.setBorder(null);
-        patientStatField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientStatFieldActionPerformed(evt);
-            }
-        });
-        jPanel3.add(patientStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 90, 20));
-
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        jLabel1.setText("Total People:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 109, 20));
-
-        peopleStatField.setBackground(new java.awt.Color(242, 242, 242));
-        peopleStatField.setToolTipText("");
-        peopleStatField.setBorder(null);
-        jPanel3.add(peopleStatField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 90, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void genderFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_genderFieldActionPerformed
-
-    private void houseIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_houseIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_houseIdFieldActionPerformed
-
     private void communityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityButtonActionPerformed
         // TODO add your handling code here:
+        CommunityAdminJFrame1 communityJFrame= new CommunityAdminJFrame1();
+        communityJFrame.show();
+        dispose();
+               
     }//GEN-LAST:event_communityButtonActionPerformed
 
     private void personButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personButtonActionPerformed
         // TODO add your handling code here:
+        CreatePersonJFrame createJFrame= new CreatePersonJFrame();
+        createJFrame.show();
+        dispose();
+               
     }//GEN-LAST:event_personButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void patientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        PatientJFrame patientJFrame= new PatientJFrame();
+        patientJFrame.show();
+        dispose();
+               
+    }//GEN-LAST:event_patientButtonActionPerformed
 
-    private void patientStatFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientStatFieldActionPerformed
+    private void hospitalButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalButton
         // TODO add your handling code here:
-    }//GEN-LAST:event_patientStatFieldActionPerformed
+        HospitalJFrame hospitalJFrame= new HospitalJFrame();
+        hospitalJFrame.show();
+        dispose();
+    }//GEN-LAST:event_hospitalButton
 
+    private void doctorButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorButton
+        // TODO add your handling code here:
+        DoctorJFrame docJFrame =  new DoctorJFrame();
+        docJFrame.show();
+        dispose();
+    }//GEN-LAST:event_doctorButton
+   
     /**
      * @param args the command line arguments
      */
@@ -333,38 +203,11 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel adminImgLabel;
-    private javax.swing.JButton adminUpdateButton;
-    private javax.swing.JTextField ageField;
-    private javax.swing.JLabel ageLabel;
     private javax.swing.JButton communityButton;
-    private javax.swing.JTextField communityStatField;
-    private javax.swing.JLabel communityStatLabel;
-    private javax.swing.JTextField docterStatField;
-    private javax.swing.JLabel docterStatLabel;
-    private javax.swing.JTextField encounterStatField;
-    private javax.swing.JLabel encounterStatLabel;
-    private javax.swing.JTextField genderField;
-    private javax.swing.JLabel genderLabel;
+    private javax.swing.JButton doctorButton;
     private javax.swing.JButton hospitalButton;
-    private javax.swing.JTextField hospitalStatField;
-    private javax.swing.JLabel hospitalStatLabel;
-    private javax.swing.JTextField houseIdField;
-    private javax.swing.JLabel houseIdLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField nameField;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField passwordField;
-    private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField patientStatField;
-    private javax.swing.JLabel patientStatLabel;
-    private javax.swing.JTextField peopleStatField;
+    private javax.swing.JButton patientButton;
     private javax.swing.JButton personButton;
-    private javax.swing.JTextField userNameField;
-    private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }
