@@ -148,7 +148,9 @@ public class LoginJFrame extends javax.swing.JFrame {
                 dispose();
                }
             if(roleName.equals("HOSPITALADMIN") ){
-               
+                HospitalJFrame hospitalJFrame= new HospitalJFrame();
+                hospitalJFrame.show();
+                dispose();
                }
             if(roleName.equals("COMMUNITYADMIN") ){
                 CommunityAdminJFrame1 communityJFrame= new CommunityAdminJFrame1();
@@ -159,8 +161,8 @@ public class LoginJFrame extends javax.swing.JFrame {
                
                }
             if(roleName.equals("PERSON")){
-                   PersonJFrame personJFrame= new PersonJFrame();
-                   personJFrame.show();
+                   PatientJFrame patientJFrame= new PatientJFrame();
+                   patientJFrame.show();
                    dispose();
                }
         }

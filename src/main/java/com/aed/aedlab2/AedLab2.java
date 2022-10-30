@@ -37,27 +37,27 @@ public class AedLab2 {
 
     public static void main(String[] args) {
 
-        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, 97, 130, 86));
-        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, 97, 180, 78));
-        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, 103, 150, 120));
-        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, 100, 110, 95));
-        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, 99, 125, 72));
+        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, "", 701));
+        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, "", 702));
+        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, "", 701));
+        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, "", 701));
+        vitalSignsMap.put(VitalSignsId, new VitalSigns(VitalSignsId++, "", 702));
 
-        docterMap.put(docterId, new Docter(docterId++, 807, Arrays.asList(300, 301, 304)));
-        docterMap.put(docterId, new Docter(docterId++, 808, Arrays.asList(300, 302, 303)));
+        docterMap.put(docterId, new Docter(docterId++, 810, Arrays.asList(300, 301, 304)));
+        docterMap.put(docterId, new Docter(docterId++, 811, Arrays.asList(300, 302, 303)));
         docterMap.put(docterId, new Docter(docterId++, 809, Arrays.asList(300, 302, 304)));
         docterMap.put(docterId, new Docter(docterId++, 810, Arrays.asList(300, 301, 303)));
         docterMap.put(docterId, new Docter(docterId++, 811, Arrays.asList(300, 302, 301)));
 
-        hospitalMap.put(houseId, new Hospital(hospitalId++, "HealthSure", "Boston",
+        hospitalMap.put(hospitalId, new Hospital(hospitalId++, "HealthSure", "Boston",
                 Arrays.asList(400, 401, 403), Arrays.asList(200, 201, 203)));
-        hospitalMap.put(houseId, new Hospital(hospitalId++, "Apex", "Boston",
+        hospitalMap.put(hospitalId, new Hospital(hospitalId++, "Apex", "Boston",
                 Arrays.asList(400, 401, 402), Arrays.asList(200, 202, 203)));
-        hospitalMap.put(houseId, new Hospital(hospitalId++, "Subrata", "Boston",
+        hospitalMap.put(hospitalId, new Hospital(hospitalId++, "Subrata", "Boston",
                 Arrays.asList(400, 402, 403), Arrays.asList(200, 201, 202)));
-        hospitalMap.put(houseId, new Hospital(hospitalId++, "Shivani", "Boston",
+        hospitalMap.put(hospitalId, new Hospital(hospitalId++, "Shivani", "Boston",
                 Arrays.asList(400, 402, 404), Arrays.asList(200, 201, 204)));
-        hospitalMap.put(houseId, new Hospital(hospitalId++, "Poonam", "Boston",
+        hospitalMap.put(hospitalId, new Hospital(hospitalId++, "Poonam", "Boston",
                 Arrays.asList(400, 404, 403), Arrays.asList(200, 204, 203)));
 
         communityMap.put(communityId, new Community(communityId++, "MissionHill", "Boston", "02115",
@@ -92,7 +92,7 @@ public class AedLab2 {
                 "PERSON", 23, "MALE", "./uploads/profileImage/pass.png", 507));
         personMap.put(personId, new Person(personId++, "Maitree", "maitree", "maitree123",
                 "SYSTEMADMIN", 50, "FEMALE", "./uploads/profileImage/pass.png", 509));
-        personMap.put(personId, new Person(personId++, "hardik", "hardik", "hardik123",
+        personMap.put(personId, new Person(personId++, "Karan", "karan", "karan123",
                 "HOSPITALADMIN", 23, "MALE", "./uploads/profileImage/pass.png", 500));
         personMap.put(personId, new Person(personId++, "Abhijith", "nair", "nair123",
                 "COMMUNITYADMIN", 30, "FEMALE", "./uploads/profileImage/pass.png", 502));

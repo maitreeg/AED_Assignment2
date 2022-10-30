@@ -44,7 +44,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
             Community c = AedLab2.communityMap.get(id);
            
             //data[rIndex][0]=String.valueOf(e.getEmployeeID());
-            data[rIndex][0] = c.getCommunityId() + "";
+            data[rIndex][0] = String.valueOf(c.getCommunityId());
             data[rIndex][1] = c.getName();
             data[rIndex][2] = c.getCity(); //String.valueOf(e.getAge());
             data[rIndex][3] = c.getZipcode();
