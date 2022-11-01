@@ -11,8 +11,13 @@ import com.aed.model.Community;
 import com.aed.model.Docter;
 import com.aed.model.Hospital;
 import com.aed.model.Person;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -71,7 +76,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 resetButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 50));
+        jPanel1.add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 130, 50));
 
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +92,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 130, 50));
+        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 130, 50));
 
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +100,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 createButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 130, 50));
+        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 130, 50));
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +108,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 backButton(evt);
             }
         });
-        jPanel1.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 40));
+        jPanel1.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 50));
 
         jPanel2.setBackground(new java.awt.Color(203, 227, 250));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,7 +131,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(hospitalTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 209));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 19, 570, 190));
 
         jPanel3.setBackground(new java.awt.Color(203, 227, 250));
 
@@ -180,7 +185,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(zipcodField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,9 +205,9 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -227,6 +232,49 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
         zipcodField.setText("");
     }
     
+    public boolean validationAction(){
+        
+        
+        Pattern pName = Pattern.compile("^[a-zA-Z][a-zA-Z ]+[a-zA-Z ]$");
+        Matcher mName = pName.matcher(hNameField.getText());
+        boolean isNameValid = mName.matches();
+        
+        Pattern cName = Pattern.compile("^[a-zA-Z][a-zA-Z ]+[a-zA-Z ]$");
+        Matcher dName = cName.matcher(cNameField.getText());
+        boolean isCNameValid = mName.matches();
+        
+        Pattern eName = Pattern.compile("^[a-zA-Z][a-zA-Z ]+[a-zA-Z ]$");
+        Matcher fName = eName.matcher(cityField.getText());
+        boolean isFNameValid = fName.matches();
+        
+        Pattern pAge = Pattern.compile("^[0-9]*$");
+        Matcher mAge = pAge.matcher((zipcodField.getText()));
+        boolean isAgeValid = mAge.matches();
+        
+        if(hNameField.getText().equals("") || isNameValid == false){
+            JOptionPane.showMessageDialog(this,"Name should be present and "
+                    + "contain alphabets only");
+            return false;
+        }
+        if(cNameField.getText().equals("") || isCNameValid == false){
+            JOptionPane.showMessageDialog(this,"Name should be present and "
+                    + "contain alphabets only");
+            return false;
+        }
+        if(cityField.getText().equals("") || isFNameValid == false){
+            JOptionPane.showMessageDialog(this,"Name should be present and "
+                    + "contain alphabets only");
+            return false;
+        }
+        
+        if((zipcodField.getText().equals("")) || isAgeValid == false){
+            JOptionPane.showMessageDialog(this,"Age should be present and "
+                    + "contain digits only");
+            return false;
+        }    
+        
+        return true;
+    }
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
         
@@ -271,7 +319,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        // if(validationAction()){
+        if(validationAction()){
             ArrayList<Integer> arr = new ArrayList<Integer>();
             String name = hNameField.getText();
             String city = cityField.getText();
@@ -298,7 +346,7 @@ public class HospitalEditJFrame extends javax.swing.JFrame {
             h.getCommunityId().add(c.getCommunityId());
             hospitalMap.put(h.getHospitalId(), h);
             
-            //}
+        }
         JOptionPane.showMessageDialog(null, "Record submitted");
         setTable();
         resetAction();

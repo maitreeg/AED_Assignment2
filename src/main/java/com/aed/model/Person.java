@@ -6,6 +6,8 @@ package com.aed.model;
  */
 public class Person {
 
+    private String loggedName;
+    private int loggedInt;
     private int personID;
     private String name;
     private String userName;
@@ -27,6 +29,22 @@ public class Person {
         this.gender = gender;
         this.photo = photo;
         this.houseID = houseID;
+    }
+
+    public String getLoggedName() {
+        return loggedName;
+    }
+
+    public void setLoggedName(String loggedName) {
+        this.loggedName = loggedName;
+    }
+
+    public int getLoggedInt() {
+        return loggedInt;
+    }
+
+    public void setLoggedInt(int loggedInt) {
+        this.loggedInt = loggedInt;
     }
 
     public String getName() {

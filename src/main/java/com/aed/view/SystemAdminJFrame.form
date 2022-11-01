@@ -43,6 +43,9 @@
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="fa" green="e3" red="cb" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Operations">
@@ -71,17 +74,17 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
-                  <Component id="doctorButton" min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <Component id="doctorButton" min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="hospitalButton" min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="communityButton" min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="personButton" min="-2" pref="53" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="hospitalButton" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="communityButton" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="personButton" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="patientButton" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="patientButton" min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -89,6 +92,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="hospitalButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="22" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Hospital"/>
           </Properties>
           <Events>
@@ -97,6 +103,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="communityButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="22" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Community"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -106,6 +115,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="personButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="22" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Person"/>
           </Properties>
           <Events>
@@ -114,6 +126,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="patientButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="22" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Patient"/>
           </Properties>
           <Events>
@@ -122,6 +137,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="doctorButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="22" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Doctor"/>
           </Properties>
           <Events>

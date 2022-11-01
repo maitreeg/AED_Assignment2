@@ -5,6 +5,7 @@
 package com.aed.view;
 
 import com.aed.aedlab2.AedLab2;
+import com.aed.view.LoginJFrame;
 import static com.aed.aedlab2.AedLab2.communityMap;
 import static com.aed.aedlab2.AedLab2.docterMap;
 import static com.aed.aedlab2.AedLab2.encounterMap;
@@ -17,20 +18,29 @@ import com.aed.model.Encounter;
 import com.aed.model.Hospital;
 import com.aed.model.Person;
 import com.aed.model.VitalSigns;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-
 /**
  *
  * @author mg
  */
 public class DoctorJFrame extends javax.swing.JFrame {
+    
     int personId = 0;
     DefaultTableModel model;
+    String loginUserName="";
+    int loginUserId = 0;
+    
     /**
      * Creates new form DoctorJFrame
      */
@@ -39,6 +49,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         setTable();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +78,8 @@ public class DoctorJFrame extends javax.swing.JFrame {
         docTable = new javax.swing.JTable();
         searchText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        logoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +127,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
                 submitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 230, 40));
+        jPanel1.add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 230, 50));
 
         jPanel2.setBackground(new java.awt.Color(194, 223, 251));
 
@@ -147,45 +160,63 @@ public class DoctorJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchText)
-                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 452, 710, 280));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 452, 710, 350));
+
+        jPanel3.setBackground(new java.awt.Color(194, 223, 251));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 160, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -207,9 +238,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         ageField.setText(String.valueOf(p.getAge()));
         vitalsText.setText(pVital);
         remarksText.setText(dRemarks);
-        
-       // Community c = AedLab2.communityMap.get(obj.getCommunityId());
-        
+           
     }//GEN-LAST:event_docTableMouseClicked
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -237,12 +266,22 @@ public class DoctorJFrame extends javax.swing.JFrame {
         e.setRemarks(remarksText.getText());
         e.setStatus("accepted");
         
+        e.setDateOfEncounter(new Date());
+        
         }//if
         JOptionPane.showMessageDialog(this, "Remarks Updated");
         setTable();
         resetAction();
         personId = 0;
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame= new LoginJFrame();
+        loginJFrame.show();
+        dispose();
+    
+    }//GEN-LAST:event_logoutButtonActionPerformed
                                         
     public void searchString(String str){
         model = (DefaultTableModel) docTable.getModel();
@@ -258,15 +297,62 @@ public class DoctorJFrame extends javax.swing.JFrame {
         vitalsText.setText("");
         remarksText.setText("");
     }
+    public boolean validationAction(){
+        
+        
+        Pattern pName = Pattern.compile("^[a-zA-Z][a-zA-Z ]+[a-zA-Z ]$");
+        Matcher mName = pName.matcher(pNameField.getText());
+        boolean isNameValid = mName.matches();
+        
+        Pattern pAge = Pattern.compile("^[0-9]*$");
+        Matcher mAge = pAge.matcher((ageField.getText()));
+        boolean isAgeValid = mAge.matches();
+        
+        
+        if(pNameField.getText().equals("") || isNameValid == false){
+            JOptionPane.showMessageDialog(this,"Name should be present and "
+                    + "contain alphabets only");
+            return false;
+        }
+        if((ageField.getText().equals("")) || isAgeValid == false){
+            JOptionPane.showMessageDialog(this,"Age should be present and "
+                    + "contain digits only");
+            return false;
+        }    
+//        String strDate = dateField.getText();
+//        if(strDate.equals("")){
+//            JOptionPane.showMessageDialog(this,"Please enter date in "
+//                    + "MM/DD/YYYY format");
+//
+//        }
+//        SimpleDateFormat sdfrmt = new SimpleDateFormat("MM/dd/yyyy");
+//        sdfrmt.setLenient(false);
+//        if(true){
+//        try
+//	    {
+//	        Date javaDate = sdfrmt.parse(strDate);
+//            }
+//	    catch (ParseException e)
+//	    {
+//	        JOptionPane.showMessageDialog(this,"Please enter date in "
+//                    + "MM/DD/YYYY format");
+//	        return false;
+//	    }
+//        }
+        
+        return true;
+    }
     
     private void setTable(){
     int rIndex = 0;
         //DateTimeFormatter dateFormatter3 = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
         String[][] data = new String[docterMap.size()][8];
         //Community.sort(communityMap, new SortById());
+        
         for(Integer id: docterMap.keySet()){
             Docter d = AedLab2.docterMap.get(id);
             Person p = AedLab2.personMap.get(d.getPersonId()); 
+            
             VitalSigns v = vitalSignsMap.get(d.getDocterId());
             Encounter e = encounterMap.get(d.getDocterId());
            
@@ -318,7 +404,12 @@ public class DoctorJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try{
                 new DoctorJFrame().setVisible(true);
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -332,9 +423,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JTextField pNameField;
     private javax.swing.JLabel pNameLabel;
     private javax.swing.JLabel remarksLabel;

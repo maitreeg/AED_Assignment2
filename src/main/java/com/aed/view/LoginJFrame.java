@@ -17,15 +17,18 @@ import javax.swing.JOptionPane;
  * @author mg
  */
 public class LoginJFrame extends javax.swing.JFrame {
-
+    
+    String loginName = "";
+    int loginId = 0;
     /**
      * Creates new form LoginJFrame
      */
     String userImage="./uploads/profileImage/username.png";
     String passImage="./uploads/profileImage/pass.png";
+    
     public LoginJFrame() {
         initComponents();
-         userImgLabel.setIcon(new ImageIcon(new ImageIcon(userImage).getImage().getScaledInstance(userImgLabel.getWidth(), userImgLabel.getHeight(), Image.SCALE_SMOOTH)));
+         //userImgLabel.setIcon(new ImageIcon(new ImageIcon(userImage).getImage().getScaledInstance(userImgLabel.getWidth(), userImgLabel.getHeight(), Image.SCALE_SMOOTH)));
          //passImgLabel.setIcon(new ImageIcon(new ImageIcon(passImage).getImage().getScaledInstance(passImgLabel.getWidth(), passImgLabel.getHeight(), Image.SCALE_SMOOTH)));
     }   
 
@@ -48,6 +51,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         jLabelErr = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(190, 220, 250));
 
         signInButton.setText("Sign In");
         signInButton.setToolTipText("");
@@ -148,33 +152,43 @@ public class LoginJFrame extends javax.swing.JFrame {
                 dispose();
                }
             if(roleName.equals("HOSPITALADMIN") ){
+                JOptionPane.showMessageDialog(this, "Login Successfull");
                 HospitalJFrame hospitalJFrame= new HospitalJFrame();
                 hospitalJFrame.show();
                 dispose();
                }
             if(roleName.equals("COMMUNITYADMIN") ){
+                JOptionPane.showMessageDialog(this, "Login Successfull");
                 CommunityAdminJFrame1 communityJFrame= new CommunityAdminJFrame1();
                 communityJFrame.show();
                 dispose();
                }
             if(roleName.equals("DOCTER") ){
+               JOptionPane.showMessageDialog(this, "Login Successfull");
                DoctorJFrame docJFrame =  new DoctorJFrame();
                docJFrame.show();
                dispose();
                }
             if(roleName.equals("PERSON")){
+                JOptionPane.showMessageDialog(this, "Login Successfull");
                    PatientJFrame patientJFrame= new PatientJFrame();
                    patientJFrame.show();
                    dispose();
                }
         }
     }//GEN-LAST:event_signInButtonActionPerformed
-    private String validUser(String uName){
+    public String validUser(String uName){
         String roleName="";
         for(Integer id: AedLab2.personMap.keySet()){
+            Person per = new Person();
             Person p = AedLab2.personMap.get(id);
             if(p.getUserName().equals(uName)){
                 roleName = p.getRole();
+                loginName = p.getName();
+                loginId = p.getPersonID();
+                per.setLoggedName(loginName);
+                per.setLoggedInt(loginId);
+               
                 break;
             }
         }

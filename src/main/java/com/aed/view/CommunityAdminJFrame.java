@@ -72,6 +72,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         createButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         communityName = new javax.swing.JLabel();
         communityCity = new javax.swing.JLabel();
@@ -95,7 +96,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 ResetButton(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 130, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 50));
 
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +104,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 50));
+        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +112,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
+        jPanel1.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 50));
 
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +120,15 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 createButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 50));
+        jPanel1.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 130, 50));
+
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 130, 50));
 
         jPanel2.setBackground(new java.awt.Color(179, 216, 252));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,8 +186,10 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -258,6 +269,14 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         setTable();
         resetAction();
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame= new LoginJFrame();
+        loginJFrame.show();
+        dispose();
+    
+    }//GEN-LAST:event_logoutButtonActionPerformed
     
     private void resetAction(){
         cNameField.setText("");
@@ -313,6 +332,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton updateButton;
     private javax.swing.JTextField zipCodeField;
     // End of variables declaration//GEN-END:variables

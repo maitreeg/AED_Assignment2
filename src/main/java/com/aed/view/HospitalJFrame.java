@@ -29,6 +29,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         patientEdit = new javax.swing.JButton();
         hospitalEdit = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,14 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(hospitalEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 380, 52));
+
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,6 +96,14 @@ public class HospitalJFrame extends javax.swing.JFrame {
         dispose();
                
     }//GEN-LAST:event_hospitalEditActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame loginJFrame= new LoginJFrame();
+        loginJFrame.show();
+        dispose();
+    
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +143,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hospitalEdit;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton patientEdit;
     // End of variables declaration//GEN-END:variables
 }
